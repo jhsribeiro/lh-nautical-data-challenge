@@ -37,7 +37,7 @@ lh_nautical_desafio/
 └── README.md               # Documentação principal
 ```
 
-# 🚀 Como Executar o Projeto
+## 🚀 Como Executar o Projeto
 
 1. Clone o repositório:
 
