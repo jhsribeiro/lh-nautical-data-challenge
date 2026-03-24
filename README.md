@@ -50,7 +50,7 @@ cd lh_nautical_desafio
 
 ```Bash
 python -m venv venv
-source venv/bin/activate  # No Windows: venv\Scripts\activate
+venv\Scripts\activate  # No Linux/macOS: source venv/bin/activate 
 ```
 3. Instale as dependências:
 
