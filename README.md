@@ -10,43 +10,44 @@
 ## 📖 Sobre o Projeto
 Este repositório contém a solução desenvolvida para o Desafio Técnico da Indicium (Jornada de Dados da **LH Nautical**). 
 
-A LH Nautical é uma varejista líder em peças e acessórios para embarcações que passou por um crescimento acelerado. O objetivo deste projeto é organizar o "caos dos dados" atual da empresa, atuando de ponta a ponta: desde a extração, limpeza e modelagem (Engenharia de Dados/SQL) até a análise de lucratividade, previsão de demanda e sistemas de recomendação (Ciência de Dados).
+A LH Nautical é uma varejista líder em peças e acessórios para embarcações que passou por um crescimento acelerado. O objetivo deste projeto é organizar o "caos dos dados" atual da empresa, atuando de ponta a ponta: desde a extração, limpeza e modelagem (Engenharia de Dados/SQL) até a previsão de demanda e sistemas de recomendação (Ciência de Dados).
 
 ## 🗂️ Estrutura do Repositório
-
-O projeto foi estruturado visando a modularidade, facilitando a manutenção e a clareza do raciocínio analítico:
+O projeto está organizado da seguinte forma para refletir as etapas do desafio:
 
 ```text
-lh_nautical_desafio/
+lh-nautical-data-challenge/
 │
-├── data/                   # Diretório para os datasets brutos e processados (não versionados no git)
-│   ├── raw/                # Bases originais (.csv, .json)
-│   └── processed/          # Bases limpas e tratadas
+├── datasets/
+│   ├── raw/                # Dados originais (JSON de clientes/custos e CSVs brutos)
+│   └── processed/          # Dados limpos, normalizados e integrados
 │
-├── notebooks/              # Jupyter Notebooks com análises exploratórias e narrativas de negócio
-│   ├── 01_EDA_Vendas.ipynb
-│   └── 02_Analises_e_Graficos.ipynb
+├── notebooks/              # Jupyter Notebooks numerados por etapa do desafio
+│   ├── Q1_eda_vendas.ipynb         # Análise exploratória de vendas
+│   ├── Q2_eda_produtos.ipynb       # Limpeza e normalização de produtos
+│   ├── Q3_custo.ipynb              # Análise de custos de importação
+│   ├── Q4_dados_publicos.ipynb     # Integração com câmbio BCB
+│   ├── Q5_analise_clientes.ipynb   # Segmentação de clientes
+│   ├── Q6_dimensao_calendario.ipynb # Tratamento de sazonalidade
+│   ├── Q7_previsao_demanda.ipynb   # Modelo de previsão (Time Series)
+│   ├── Q8_recomendacao.ipynb       # Sistema de recomendação (Similaridade)
+│   └── plots/                      # Visualizações geradas pelos notebooks
 │
-├── src/                    # Scripts Python modulares para processamento e IA
-│   ├── data_processing.py  # Funções de limpeza (Q2 e Q3)
-│   ├── predicao.py         # Modelo baseline de previsão (Q7)
-│   └── recomendacao.py     # Sistema de similaridade de cosseno (Q8)
+├── sql/                    # Queries SQL solicitadas no desafio
+│   ├── Q1.sql                      # Exploração inicial
+│   ├── Q4.sql                      # Consultas de câmbio
+│   ├── Q5.sql                      # Consultas de clientes
+│   └── Q6.sql                      # Criação da dimensão calendário
 │
-├── sql/                    # Scripts com as queries solicitadas
-│   ├── q1_exploracao.sql
-│   └── q6_dimensao_calendario.sql
-│
-├── requirements.txt        # Dependências do projeto
-└── README.md               # Documentação principal
+├── requirements.txt        # Bibliotecas necessárias (Pandas, Scikit-Learn, etc.)
+└── README.md               # Documentação do projeto
 ```
-
 ## 🚀 Como Executar o Projeto
 
 1. Clone o repositório:
 
 ```Bash
 git clone [https://github.com/seu-usuario/lh_nautical_desafio.git](https://github.com/seu-usuario/lh_nautical_desafio.git)
-
 cd lh_nautical_desafio
 ```
 2. Crie e ative um ambiente virtual (recomendado):
@@ -61,9 +62,14 @@ venv\Scripts\activate  # No Linux/macOS: source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+4. Explore os Notebooks:
+Os notebooks na pasta /notebooks seguem a ordem lógica do desafio, começando pela limpeza de dados (Q1/Q2) até as entregas de IA (Q7/Q8).
+
+
 ## 🎯 Principais Entregas
-* Engenharia de Dados: Limpeza de JSON aninhado e normalização de categorias com Python; Criação de dimensão de calendário em SQL para tratamento de sazonalidade.
-* Inteligência de Negócios: Cruzamento de cotações diárias de moedas (BRL vs USD) para identificar gargalos de prejuízo operacional. Segmentação de clientes "Elite".
-* Ciência de Dados: Implementação de um modelo baseline para prever a demanda do "Motor de Popa Yamaha Evo Dash 155HP" validado via Mean Absolute Error (MAE), e um motor de recomendação usando Similaridade de Cosseno para cross-sell.
+
+* Engenharia de Dados: Tratamento de JSONs aninhados e normalização de bases de produtos e vendas.
+* Integração de APIs: Uso de dados públicos do Banco Central para análise de impacto cambial nos custos.
+* Ciência de Dados: Previsão de demanda para motores específicos e motor de recomendação para cross-sell de acessórios.
 
 Autor: Jhiovana Ribeiro
