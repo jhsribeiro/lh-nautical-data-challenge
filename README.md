@@ -47,7 +47,7 @@ lh-nautical-data-challenge/
 1. Clone o repositório:
 
 ```Bash
-git clone [https://github.com/seu-usuario/lh_nautical_desafio.git](https://github.com/seu-usuario/lh_nautical_desafio.git)
+git clone https://github.com/jhsribeiro/lh-nautical-data-challenge.git
 cd lh_nautical_desafio
 ```
 2. Crie e ative um ambiente virtual (recomendado):
